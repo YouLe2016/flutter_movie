@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'constant.dart';
+import 'movie_list_page.dart';
+
 class MoviePage extends StatefulWidget {
   @override
   _MoviePageState createState() => _MoviePageState();
@@ -8,9 +11,9 @@ class MoviePage extends StatefulWidget {
 class _MoviePageState extends State<MoviePage> {
   int _currentIndex = 0;
   List pages = [
-    Text('page1'),
-    Text('page2'),
-    Text('page3'),
+    MovieListPage(playing),
+    MovieListPage(coming),
+    MovieListPage(top),
   ];
 
   @override
@@ -65,15 +68,15 @@ class _MoviePageState extends State<MoviePage> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.movie_filter),
-            title: Text('正在热映'),
+            title: Text(playing),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.movie_creation),
-            title: Text('即将上映'),
+            title: Text(coming),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.local_movies),
-            title: Text('Top250'),
+            title: Text(top),
           ),
         ],
       ),
